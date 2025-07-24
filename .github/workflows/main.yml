@@ -1,0 +1,22 @@
+name: Deploy Website via FTP
+
+on:
+  push:
+    branches:
+      - main # 如果你的主要分支是 master，請改成 master
+  
+  workflow_dispatch: # <-- 加上呢行，就可以手動觸發
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@4.3.3
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          # !! 重要 !! 把這裡換成你伺服器上的網站目錄
+          server-dir: public_html/web/travel
