@@ -19,4 +19,4 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           # !! 重要 !! 把這裡換成你伺服器上的網站目錄
-          server-dir: public_html/web/travel
+          server-dir: public_html/web/travel/
